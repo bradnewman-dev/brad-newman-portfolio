@@ -2,7 +2,45 @@
 import BaseLayout from "src/layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Brad Newman - Web Developer">
-  <h1>Brad Newman</h1>
-  <p>Frontend Developer focused on accessible, performant web interfaces</p>
+<BaseLayout title="Brad Newman — Web Developer">
+  <section aria-labelledby="hero-heading">
+    <h1 id="hero-heading">Brad Newman</h1>
+    <p>Frontend developer focused on accessible, performant web interfaces</p>
+  </section>
+
+  <section aria-labelledby="about-heading">
+    <h2 id="about-heading">About</h2>
+    <p>
+      I’m a frontend developer with a focus on building clean, maintainable user
+      interfaces using modern web technologies. I enjoy working with React and
+      care deeply about accessibility, performance, and thoughtful UI design.
+    </p>
+  </section>
+
+  <section aria-labelledby="skills-heading">
+    <h2 id="skills-heading">Skills</h2>
+    <ul>
+      <li>JavaScript (ES6+)</li>
+      <li>React</li>
+      <li>HTML & CSS</li>
+      <li>Git & Github</li>
+      <li>Accessibility (WCAG)</li>
+      <li>Performance Optimization</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="projects-heading">
+    <h2 id="projects-heading">Featured Project</h2>
+    <p>
+      A selected React project demonstrating state management, component
+      composition, and real-world UI patterns. (Coming soon.)
+    </p>
+  </section>
+
+  <section aria-labelledby="contact-heading">
+    <h2 id="contact-heading">Get in Touch</h2>
+    <p>
+      <a href="mailto:contact@bradnewman.dev"> contact@bradnewman.dev </a>
+    </p>
+  </section>
 </BaseLayout>
