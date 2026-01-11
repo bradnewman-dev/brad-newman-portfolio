@@ -5,6 +5,7 @@ export default function SearchFilterApp() {
   const [data, setData] = useState<Item[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [query, setQuery] = useState("");
+  const [category, setCategory] = useState("");
 
   useEffect(() => {
     // Simulate async data fetching
@@ -17,13 +18,19 @@ export default function SearchFilterApp() {
     loadData();
   }, []);
 
+  const categories = Array.from(new Set(data.map((item) => item.category)));
+
+  const filteredItems = data.filter((item) => {
+    const matchesQuery = item.name.toLowerCase().includes(query.toLowerCase());
+
+    const matchesCategory = category === "" || item.category === category;
+
+    return matchesQuery && matchesCategory;
+  });
+
   if (isLoading) {
     return <p>Loading items…</p>;
   }
-
-  const filteredItems = data.filter((item) =>
-    item.name.toLowerCase().includes(query.toLowerCase())
-  );
 
   return (
     <div>
@@ -34,6 +41,19 @@ export default function SearchFilterApp() {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
+      <label htmlFor="category">Category</label>
+      <select
+        id="category"
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
+      >
+        <option value="">All</option>
+        {categories.map((cat) => (
+          <option key={cat} value={cat}>
+            {cat}
+          </option>
+        ))}
+      </select>
       {filteredItems.length === 0 ? (
         <p>No results found.</p>
       ) : (
