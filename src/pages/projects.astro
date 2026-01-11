@@ -6,10 +6,35 @@ import BaseLayout from "src/layouts/BaseLayout.astro";
   <section>
     <h1>Projects</h1>
     <p>
-      This page highlights selected projects that demonstrate my frontend
-      development skills, with a focus on React, accessibility, and performance.
+      Selected projects demonstrating my frontend development skills, with a
+      focus on React, accessibility, and maintainable UI architecture.
     </p>
+  </section>
 
-    <p>A featured React project will be added here soon.</p>
+  <section aria-labelledby="featured-project-heading">
+    <h2 id="featured-project-heading">Featured Project</h2>
+
+    <article>
+      <h3>Search & Filter UI</h3>
+      <p>
+        An interactive React project showcasing controlled inputs, derived
+        state, accessibility best practices, and component-based architecture.
+      </p>
+      <p>
+        <a href="/projects/search-filter"> View project → </a>
+      </p>
+    </article>
+  </section>
+
+  <section aria-labelledby="other-projects-heading">
+    <h2 id="other-projects-heading">Other Projects</h2>
+
+    <article>
+      <h3>Dashboard UI</h3>
+      <p>
+        A responsive dashboard interface focused on layout composition and
+        reusable components. (Coming soon.)
+      </p>
+    </article>
   </section>
 </BaseLayout>
