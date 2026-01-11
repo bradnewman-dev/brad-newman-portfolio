@@ -34,28 +34,45 @@ export default function SearchFilterApp() {
 
   return (
     <div>
-      <label htmlFor="search">Search</label>
-      <input
-        id="search"
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <label htmlFor="category">Category</label>
-      <select
-        id="category"
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-      >
-        <option value="">All</option>
-        {categories.map((cat) => (
-          <option key={cat} value={cat}>
-            {cat}
-          </option>
-        ))}
-      </select>
+      <fieldset>
+        <legend>Filter items</legend>
+
+        <div>
+          <label htmlFor="search">Search</label>
+
+          <input
+            id="search"
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="category">Category</label>
+          <select
+            id="category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            <option value="">All</option>
+
+            {categories.map((cat) => (
+              <option key={cat} value={cat}>
+                {cat}
+              </option>
+            ))}
+          </select>
+        </div>
+      </fieldset>
+
+      <p aria-live="polite">
+        {filteredItems.length} result
+        {filteredItems.length !== 1 && "s"} found
+      </p>
+
       {filteredItems.length === 0 ? (
-        <p>No results found.</p>
+        <p>No items match your current filters.</p>
       ) : (
         <ul>
           {filteredItems.map((item) => (
