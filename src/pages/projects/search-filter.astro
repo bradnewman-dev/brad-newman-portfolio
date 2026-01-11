@@ -12,5 +12,29 @@ import SearchFilterApp from "src/components/search-filter/SearchFilterApp.tsx";
     </p>
 
     <SearchFilterApp client:load />
-  </section></BaseLayout
->
+  </section>
+
+  <section aria-labelledby="technical-notes-heading">
+    <h2 id="technical-notes-heading">Technical Notes</h2>
+
+    <ul>
+      <li>
+        Built with React inside an Astro project to demonstrate framework
+        interoperability and selective hydration.
+      </li>
+      <li>
+        Uses controlled inputs and derived state instead of duplicating filtered
+        results in state.
+      </li>
+      <li>
+        Accessibility considerations include semantic form grouping, screen
+        reader announcements, and keyboard-friendly interactions.
+      </li>
+      <li>
+        UI state is synchronized to URL query parameters to allow bookmarking
+        and sharing.
+      </li>
+      <li>Styles are scoped using CSS Modules to avoid global side effects.</li>
+    </ul>
+  </section>
+</BaseLayout>
