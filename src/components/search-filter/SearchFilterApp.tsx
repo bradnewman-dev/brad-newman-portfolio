@@ -7,6 +7,26 @@ export default function SearchFilterApp() {
   const [isLoading, setIsLoading] = useState(true);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("");
+  const [sort, setSort] = useState<"name" | "category">("name");
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+
+    setQuery(params.get("q") ?? "");
+    setCategory(params.get("category") ?? "");
+    setSort(params.get("sort") === "category" ? "category" : "name");
+  }, []);
+
+  useEffect(() => {
+    const params = new URLSearchParams();
+
+    if (query) params.set("q", query);
+    if (category) params.set("category", category);
+    if (sort !== "name") params.set("sort", sort);
+
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
+    window.history.replaceState(null, "", newUrl);
+  }, [query, category, sort]);
 
   useEffect(() => {
     // Simulate async data fetching
@@ -21,13 +41,19 @@ export default function SearchFilterApp() {
 
   const categories = Array.from(new Set(data.map((item) => item.category)));
 
-  const filteredItems = data.filter((item) => {
-    const matchesQuery = item.name.toLowerCase().includes(query.toLowerCase());
+  const filteredItems = data
+    .filter((item) => {
+      const matchesQuery = item.name
+        .toLowerCase()
+        .includes(query.toLowerCase());
 
-    const matchesCategory = category === "" || item.category === category;
+      const matchesCategory = category === "" || item.category === category;
 
-    return matchesQuery && matchesCategory;
-  });
+      return matchesQuery && matchesCategory;
+    })
+    .sort((a, b) => {
+      return a[sort].localeCompare(b[sort]);
+    });
 
   if (isLoading) {
     return <p>Loading items…</p>;
@@ -63,6 +89,18 @@ export default function SearchFilterApp() {
                 {cat}
               </option>
             ))}
+          </select>
+        </div>
+
+        <div className={styles.control}>
+          <label htmlFor="sort">Sort by</label>
+          <select
+            id="sort"
+            value={sort}
+            onChange={(e) => setSort(e.target.value as "name" | "category")}
+          >
+            <option value="name">Name</option>
+            <option value="category">Category</option>
           </select>
         </div>
       </fieldset>
