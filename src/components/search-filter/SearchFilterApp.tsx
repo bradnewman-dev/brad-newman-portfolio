@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { items, type Item } from "./data";
+import styles from "./SearchFilterApp.module.css";
 
 export default function SearchFilterApp() {
   const [data, setData] = useState<Item[]>([]);
@@ -33,11 +34,11 @@ export default function SearchFilterApp() {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       <fieldset>
         <legend>Filter items</legend>
 
-        <div>
+        <div className={styles.control}>
           <label htmlFor="search">Search</label>
 
           <input
@@ -48,7 +49,7 @@ export default function SearchFilterApp() {
           />
         </div>
 
-        <div>
+        <div className={styles.control}>
           <label htmlFor="category">Category</label>
           <select
             id="category"
@@ -66,22 +67,24 @@ export default function SearchFilterApp() {
         </div>
       </fieldset>
 
-      <p aria-live="polite">
-        {filteredItems.length} result
-        {filteredItems.length !== 1 && "s"} found
-      </p>
+      <div className={styles.results}>
+        <p aria-live="polite">
+          {filteredItems.length} result
+          {filteredItems.length !== 1 && "s"} found
+        </p>
 
-      {filteredItems.length === 0 ? (
-        <p>No items match your current filters.</p>
-      ) : (
-        <ul>
-          {filteredItems.map((item) => (
-            <li key={item.id}>
-              <strong>{item.name}</strong> — {item.category}
-            </li>
-          ))}
-        </ul>
-      )}
+        {filteredItems.length === 0 ? (
+          <p>No items match your current filters.</p>
+        ) : (
+          <ul>
+            {filteredItems.map((item) => (
+              <li key={item.id}>
+                <strong>{item.name}</strong> — {item.category}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }

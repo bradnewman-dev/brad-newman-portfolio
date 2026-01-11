@@ -1,0 +1,38 @@
+.container {
+    margin-top: 2rem;
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+legend {
+    font-weight: 600;
+}
+
+.control {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+label {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+input,
+select {
+    padding: 0.4rem;
+    font-size: 1rem;
+}
+
+.results {
+    margin-top: 1rem;
+}
+
+ul {
+    padding-left: 1.25rem;
+}
