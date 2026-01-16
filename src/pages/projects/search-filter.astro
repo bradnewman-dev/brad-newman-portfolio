@@ -5,42 +5,36 @@ import SearchFilterApp from "src/components/search-filter/SearchFilterApp.tsx";
 
 <BaseLayout title="Search & Filter UI — Brad Newman">
   <section>
-    <h1>Search & Filter Interface (React)</h1>
+    <h1>Search & Filter UI</h1>
     <p>
-      An interactive search, filter, and sorting interface built with React to
-      demonstrate common frontend patterns used in data-driven applications. The
-      UI synchonizes state with URL query parameters and ephasizes accessibility
-      and predictable component behavior.
-    </p>
-    <p>
-      React · State Management · Accessibility · URL State · Component
-      Architecture
+      An interactive React project demonstrating state management, component
+      composition, and accessible UI patterns.
     </p>
 
     <SearchFilterApp client:load />
   </section>
 
-  <section aria-labelledby="technical-notes-heading">
-    <h2 id="technical-notes-heading">Technical Notes</h2>
+  <section aria-labelledby="project-purpose-heading">
+    <h2 id="project-purpose-heading">Why This Project?</h2>
+    <p>
+      This project was created to demonstrate how I approach building
+      interactive frontend interfaces that manage user input, application state,
+      and URL synchronization in a predictable and accessible way. The focus is
+      on clarity, maintainability, and real-world usage rather than visual
+      complexity.
+    </p>
+  </section>
+
+  <section aria-labelledby="technical-highlights-heading">
+    <h2 id="technical-highlights-heading">Technical Highlights</h2>
 
     <ul>
-      <li>
-        Built with React inside an Astro project to demonstrate framework
-        interoperability and selective hydration.
-      </li>
-      <li>
-        Uses controlled inputs and derived state instead of duplicating filtered
-        results in state.
-      </li>
-      <li>
-        Accessibility considerations include semantic form grouping, screen
-        reader announcements, and keyboard-friendly interactions.
-      </li>
-      <li>
-        UI state is synchronized to URL query parameters to allow bookmarking
-        and sharing.
-      </li>
-      <li>Styles are scoped using CSS Modules to avoid global side effects.</li>
+      <li>Controlled React state for search, filters, and sorting</li>
+      <li>URL query parameter synchronization</li>
+      <li>Accessible form controls and keyboard navigation</li>
+      <li>Clear separation of UI components and logic</li>
+      <li>Predictable rendering and state updates</li>
+      <li>Scoped styles using CSS Modules</li>
     </ul>
   </section>
 </BaseLayout>
