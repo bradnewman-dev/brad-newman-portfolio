@@ -4,10 +4,15 @@ import type { UserStatus } from "./DashboardApp";
 type UserTableProps = {
   search: string;
   status: UserStatus;
+  sortBy: "name" | "email";
 };
 
-export default function UserTable({ search, status }: UserTableProps) {
+export default function UserTable({ search, status, sortBy }: UserTableProps) {
   const normalizedSearch = search.toLowerCase();
+
+  if (users.length === 0) {
+    return <p>Loading users…</p>;
+  }
 
   const filteredUsers: User[] = users.filter((user) => {
     const matchesSearch =
@@ -23,8 +28,12 @@ export default function UserTable({ search, status }: UserTableProps) {
     return <p>No users match the current filters.</p>;
   }
 
+  const sortedUsers = [...filteredUsers].sort((a, b) => {
+    return a[sortBy].localeCompare(b[sortBy]);
+  });
+
   return (
-    <table>
+    <table aria-label="User list">
       <thead>
         <tr>
           <th scope="col">Name</th>
@@ -33,7 +42,7 @@ export default function UserTable({ search, status }: UserTableProps) {
         </tr>
       </thead>
       <tbody>
-        {filteredUsers.map((user) => (
+        {sortedUsers.map((user) => (
           <tr key={user.id}>
             <td>{user.name}</td>
             <td>{user.email}</td>
