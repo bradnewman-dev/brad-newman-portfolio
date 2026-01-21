@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+:root {
+    --accent: #950606;
+}
+
 body {
     margin: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -30,22 +34,73 @@ nav ul {
     margin: 0;
 }
 
-nav a {
+a {
+    color: #111;
     text-decoration: none;
-    color: inherit;
 }
 
-nav a:hover {
-    text-decoration: underline;
+a:hover {
+    color: var(--accent);
+    text-decoration: none;
 }
 
 /* Headings */
 h1,
-h2 {
-    line-height: 1.2;
+h2, h3 {
+    line-height: 1.3;
+    margin-bottom: 0.5em;
 }
 
 /* Sections */
 section {
     margin-bottom: 3rem;
+}
+
+section + section {
+    border-top: 1px solid #eee;
+    padding-top: 2rem;
+}
+
+/* Form Controls */
+input,
+select {
+    padding: 0.5rem 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font: inherit;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+/* Labels */
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-weight: 500;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 0.6rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+    font-weight: 600;
+}
+
+tbody tr:hover {
+    background-color: #f9fafb;
 }

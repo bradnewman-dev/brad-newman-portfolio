@@ -62,7 +62,7 @@ export default function SearchFilterApp() {
   return (
     <div className={styles.container}>
       <fieldset>
-        <legend>Filter items</legend>
+        <legend>Filters</legend>
 
         <div className={styles.control}>
           <label htmlFor="search">Search</label>

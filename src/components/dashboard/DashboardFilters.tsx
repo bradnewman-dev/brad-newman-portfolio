@@ -1,5 +1,6 @@
 import type { ChangeEvent } from "react";
 import type { UserStatus } from "./DashboardApp";
+import styles from "./DashboardFilters.module.css";
 
 type DashboardFiltersProps = {
   search: string;
@@ -27,35 +28,47 @@ export default function DashboardFilters({
   };
 
   return (
-    <form aria-label="User filters">
-      <fieldset>
+    <form aria-label="User filters" className={styles.container}>
+      <fieldset className={styles.filters}>
         <legend>Filters</legend>
 
-        <label>
-          Search
-          <input type="text" value={search} onChange={handleSearchChange} />
-        </label>
+        <div className={styles.control}>
+          <label htmlFor="search">
+            Search
+            <input
+              id="search"
+              type="text"
+              value={search}
+              onChange={handleSearchChange}
+            />
+          </label>
+        </div>
 
-        <label>
-          Status
-          <select value={status} onChange={handleStatusChange}>
-            <option value="all">All</option>
-            <option value="active">Active</option>
-            <option value="inactive">Inactive</option>
-            <option value="pending">Pending</option>
-          </select>
-        </label>
+        <div className={styles.control}>
+          <label htmlFor="status">
+            Status
+            <select id="status" value={status} onChange={handleStatusChange}>
+              <option value="all">All</option>
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+              <option value="pending">Pending</option>
+            </select>
+          </label>
+        </div>
 
-        <label>
-          Sort By
-          <select
-            value={sortBy}
-            onChange={(e) => onSortChange(e.target.value as "name" | "email")}
-          >
-            <option value="name">Name</option>
-            <option value="email">Email</option>
-          </select>
-        </label>
+        <div className={styles.control}>
+          <label htmlFor="sort">
+            Sort By
+            <select
+              id="sort"
+              value={sortBy}
+              onChange={(e) => onSortChange(e.target.value as "name" | "email")}
+            >
+              <option value="name">Name</option>
+              <option value="email">Email</option>
+            </select>
+          </label>
+        </div>
       </fieldset>
     </form>
   );
