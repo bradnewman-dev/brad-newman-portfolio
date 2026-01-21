@@ -1,0 +1,19 @@
+---
+import BaseLayout from "src/layouts/BaseLayout.astro";
+import DashboardApp from "src/components/dashboard/DashboardApp.tsx";
+---
+
+<BaseLayout title="Dashboard UI — Brad Newman">
+  <section>
+    <h1>Dashboard UI</h1>
+    <p>
+      A React-based dashboard interface demonstrating layout composition,
+      table-based data presentation, and common patterns used in internal tools.
+    </p>
+  </section>
+
+  <section aria-labelledby="dashboard-project">
+    <h2 id="dashboard-project">Project</h2>
+    <DashboardApp client:load />
+  </section>
+</BaseLayout>
