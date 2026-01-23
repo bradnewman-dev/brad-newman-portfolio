@@ -29,12 +29,12 @@
 }
 
 .applyButton {
-    background-color: #10b981;
+    background-color: #006400;
     color: #fff;
 }
 
 .applyButton:hover {
-    background-color: #059669;
+    background-color: #004d00;
 }
 
 .resetButton {
