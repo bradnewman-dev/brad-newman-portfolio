@@ -5,22 +5,34 @@ import UserTable from "./UserTable";
 
 export type UserStatus = "all" | "active" | "inactive" | "pending";
 
+export type SortBy = "name" | "email";
+
+export type Filters = {
+  search: string;
+  status: UserStatus;
+  sortBy: SortBy;
+};
+
 export default function DashboardApp() {
-  const [search, setSearch] = useState<string>("");
-  const [status, setStatus] = useState<UserStatus>("all");
-  const [sortBy, setSortBy] = useState<"name" | "email">("name");
+  const initialFilters: Filters = {
+    search: "",
+    status: "all",
+    sortBy: "name",
+  };
+  const [filters, setFilters] = useState<Filters>(initialFilters);
 
   return (
     <DashboardLayout>
       <DashboardFilters
-        search={search}
-        status={status}
-        sortBy={sortBy}
-        onSearchChange={setSearch}
-        onStatusChange={setStatus}
-        onSortChange={setSortBy}
+        initialFilters={initialFilters}
+        onApply={setFilters}
+        onReset={() => setFilters(initialFilters)}
       />
-      <UserTable search={search} status={status} sortBy={sortBy} />
+      <UserTable
+        search={filters.search}
+        status={filters.status}
+        sortBy={filters.sortBy}
+      />
     </DashboardLayout>
   );
 }

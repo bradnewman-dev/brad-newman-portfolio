@@ -1,10 +1,10 @@
 import { users, type User } from "./users";
-import type { UserStatus } from "./DashboardApp";
+import type { UserStatus, SortBy } from "./DashboardApp";
 
 type UserTableProps = {
   search: string;
   status: UserStatus;
-  sortBy: "name" | "email";
+  sortBy: SortBy;
 };
 
 export default function UserTable({ search, status, sortBy }: UserTableProps) {
