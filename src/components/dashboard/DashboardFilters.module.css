@@ -38,9 +38,9 @@
 }
 
 .resetButton {
-    background-color: #d3d3d3;
+    background-color: #e8e6e6;
     color: #000;
 }
 .resetButton:hover {
-    background-color: #a9a9a9;
+    background-color: #cacaca;
 }
