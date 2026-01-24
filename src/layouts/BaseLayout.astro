@@ -18,11 +18,20 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="author" content="Brad Newman" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="BN.dev" />
+    <link rel="manifest" href="/site.webmanifest" />
     <title>{title}</title>
   </head>
   <body>
     <header>
       <nav aria-label="Primary">
+        <a href="/" aria-label="Brad Newman home">
+          <img src="/bn-logo.png" alt="Brad Newman" width="80" height="50" />
+        </a>
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/projects">Projects</a></li>
