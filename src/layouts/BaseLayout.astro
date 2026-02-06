@@ -9,6 +9,8 @@ const {
   title = "Brad Newman - Web Developer",
   description = "Brad Newman is a frontend web developer specializing in React, accessible UI, and modern component architecture.",
 } = Astro.props as Props;
+
+const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -33,9 +35,23 @@ const {
           <img src="/bn-logo.png" alt="Brad Newman" width="95" height="50" />
         </a>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/projects">Projects</a></li>
-          <li><a href="/about">About</a></li>
+          <li>
+            <a href="/" aria-current={currentPath === "/" ? "page" : undefined}
+              >Home</a>
+          </li>
+          <li>
+            <a
+              href="/projects"
+              aria-current={currentPath.startsWith("/projects")
+                ? "page"
+                : undefined}>Projects</a>
+          </li>
+          <li>
+            <a
+              href="/about"
+              aria-current={currentPath === "/about" ? "page" : undefined}
+              >About</a>
+          </li>
         </ul>
       </nav>
     </header>

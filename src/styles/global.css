@@ -44,6 +44,20 @@ nav ul {
     margin: 0;
 }
 
+nav a {
+    position: relative;
+}
+
+nav a[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 3px;
+    background-color: var(--accent);
+}
+
 a {
     color: #111;
     text-decoration: none;
