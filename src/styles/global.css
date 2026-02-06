@@ -31,6 +31,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     background-color: #e4e3e3;
+    border-bottom: 1px solid #222;
     position: fixed;
     width: 100%;
     top: 0;
@@ -135,11 +136,33 @@ tbody tr:hover {
 }
 
 /* Footer */
-footer {
-    display: flex;
-    justify-content: center;
-    background-color: #e4e3e3;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
+ .site-footer {
+     padding: 0.5rem;
+     border-top: 1px solid #222;
+     position: fixed;
+     width: 100%;
+     bottom: 0;
+     background-color: #e4e3e3;
+ }
+
+ .footer-content {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+
+ .social-links {
+     display: flex;
+     gap: 1rem;
+ }
+
+ .social-links a {
+     color: var(--accent);
+     opacity: 0.85;
+     transition: opacity 0.2s ease, transform 0.2s ease;
+ }
+
+ .social-links a:hover {
+     opacity: 1;
+     transform: translateY(-2px);
+ }
